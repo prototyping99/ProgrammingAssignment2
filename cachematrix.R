@@ -2,6 +2,8 @@
 ## functions do
 
 ## Write a short comment describing this function
+#the function takes a matrix and assign to x as gobal variable during the process the mean m is set to NULL
+#the function then return the list of operations that can be perfomed to x and m
 
 makeCacheMatrix <- function(x = matrix()) {
     inv<- NULL
@@ -15,9 +17,9 @@ makeCacheMatrix <- function(x = matrix()) {
     list(set=set,get=get,setInv=setInv,getInv=getInv)
 }
 
-
 ## Write a short comment describing this function
-
+#this function takes  the result returned by function above and checks if the mean is computed
+#if not it computes the mean otherwise it return previously computed mean.
 cacheSolve <- function(x, ...) {
             ## Return a matrix that is the inverse of 'x'
     inv<- x$getInv()
@@ -31,16 +33,7 @@ cacheSolve <- function(x, ...) {
     inv
     
 }
-A <- matrix( c(5, 1, 0,
-               3,-1, 2,
-               4, 0,-1), nrow=3, byrow=TRUE)
-x<-makeCacheMatrix(A)
-cacheSolve(x)
-data<-c(-1,2,3,-2,1,4,2,1,5)
-mat<-matrix(data,3,3)
-x$set(mat)
-cacheSolve(x)
-cacheSolve(x)
-cacheSolve(x)
+
+
 
 
